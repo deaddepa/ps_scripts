@@ -6,7 +6,7 @@ Function Get-ConvertedTime($utcTime,$tz)
     Return $convertedTime
 }
 
-$utcInput=Read-Host "Enter the UTC time to convert "
+$utcInput=Read-Host "Enter the UTC time to convert (24hr format)"
 $tgtTimezone = Read-Host "Enter the timezone to convert $utcInput to "
 $tgtTimezoneSearchVal = $tgtTimezone+"*"
 $tgtTZID=(Get-TimeZone -Name "$tgtTimezoneSearchVal").Id

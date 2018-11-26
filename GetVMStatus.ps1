@@ -15,3 +15,4 @@ foreach($resgroup in $resgroupName)
         }
     }
 }
+Logout-AzureRmAccount
