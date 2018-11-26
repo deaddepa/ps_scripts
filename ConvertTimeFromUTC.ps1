@@ -1,13 +1,13 @@
 Function Get-ConvertedTime($utcTime,$tz)
 {
     $tzinfo=[System.TimeZoneInfo]::FindSystemTimeZoneById($tz)
-    #Write-Host "Timezone: $tzinfo"
+    Write-Debug "Got Timezone ID for $tz : $tzinfo"
     $convertedTime = [System.TimeZoneInfo]::ConvertTimeFromUtc($utcTime,$tzinfo)
     Return $convertedTime
 }
 
-$utcInput=Read-Host "Enter the time to convert: "
-$tgtTimezone = Read-Host "Enter the timezone to convert $utcInput to: "
+$utcInput=Read-Host "Enter the UTC time to convert "
+$tgtTimezone = Read-Host "Enter the timezone to convert $utcInput to "
 $tgtTimezoneSearchVal = $tgtTimezone+"*"
 $tgtTZID=(Get-TimeZone -Name "$tgtTimezoneSearchVal").Id
 Write-host "Searching for timezones matching name $tgtTimezone"
